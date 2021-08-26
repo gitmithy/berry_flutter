@@ -31,17 +31,21 @@ class FriendCircle extends StatelessWidget {
                   ),
                 ),
                 TextSpan(text: '：${comment.content}'),
-              ]..insertAll(1, comment.source ? [TextSpan()] : [
-                  TextSpan(text: ' 回复 '),
-                  TextSpan(
-                    text: comment.toUser,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xFF636F80),
-                    ),
-                  ),
-                ],
-              ),
+              ]..insertAll(
+                  1,
+                  comment.source
+                      ? [TextSpan()]
+                      : [
+                          TextSpan(text: ' 回复 '),
+                          TextSpan(
+                            text: comment.toUser,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xFF636F80),
+                            ),
+                          ),
+                        ],
+                ),
             ),
           );
         }).toList(),
@@ -92,7 +96,9 @@ class FriendCircle extends StatelessWidget {
                   padding: EdgeInsets.symmetric(vertical: 10),
                   child: Image.network(
                     this.data.pic,
-                    fit: BoxFit.fitWidth,
+                    // fit: BoxFit.fitWidth,
+                    width: 100,
+                    // width: AppBar().preferredSize.width * 0.6,
                   ),
                 ),
                 Row(
