@@ -1,0 +1,20 @@
+{
+  "name": "flutter_demo2",
+  "version": "1.0.0",
+  "description": "Flutter练习，欢迎Star，一起学习~",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "model": "bash generate_model.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.yundasys.com:8090/yaoguang2800/flutter_demo2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -2,6 +2,32 @@
 
 Flutter练习，欢迎Star，一起学习~
 
+## 模型类自动生成脚本
+
+>执行命令: npm run model 字段名1 字段名2 字段名3 ...
+
+```
+如：
+npm run model title description routeName
+
+生成：
+
+class GenerateModel {
+  final String title;
+  final String description;
+  final String routeName;
+
+  GenerateModel({
+    this.title,
+    this.description,
+    this.routeName,
+  });
+}
+
+
+``` 
+
+
 ## 文章
 
 - [用Flutter构建漂亮的UI界面 - 基础组件篇](https://github.com/SmallStoneSK/Blog/issues/12)
