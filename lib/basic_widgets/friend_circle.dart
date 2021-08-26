@@ -96,8 +96,8 @@ class FriendCircle extends StatelessWidget {
                   padding: EdgeInsets.symmetric(vertical: 10),
                   child: Image.network(
                     this.data.pic,
-                    // fit: BoxFit.fitWidth,
-                    width: 100,
+                    fit: BoxFit.fitWidth,
+                    // width: 100,
                     // width: AppBar().preferredSize.width * 0.6,
                   ),
                 ),

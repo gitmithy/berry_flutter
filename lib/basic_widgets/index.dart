@@ -9,14 +9,17 @@ import '../common/demo_tabs.dart';
 List<DemoTabViewModel> demos = [
   DemoTabViewModel(title: '宠物卡片', widget: PetCard(data: petCardData)),
   DemoTabViewModel(title: '银行卡', widget: CreditCard(data: creditCardData)),
-  DemoTabViewModel(title: '微信朋友圈', widget: FriendCircle(data: friendCircleData)),
-].map((item) => DemoTabViewModel(
-  title: item.title,
-  widget: Column(
-    mainAxisSize: MainAxisSize.min,
-    children: <Widget>[item.widget],
-  ),
-)).toList();
+  DemoTabViewModel(
+      title: '微信朋友圈', widget: FriendCircle(data: friendCircleData)),
+]
+    .map((item) => DemoTabViewModel(
+          title: item.title,
+          widget: ListView(
+            // mainAxisSize: MainAxisSize.min,
+            children: <Widget>[item.widget],
+          ),
+        ))
+    .toList();
 
 class BasicWidgetsDemo extends StatefulWidget {
   @override
