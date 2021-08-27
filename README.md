@@ -6,7 +6,9 @@ Flutter练习，欢迎Star，一起学习~
 ## overflow error 解决
 [overflow error 解决](https://stackoverflow.com/questions/55312583/overflow-error-in-flutter-when-keyboard-open)
 
-报错原因：内容超过可视区，根节点未使用可滚动组件
+- 报错原因：
+  - 1、内容超过可视区，根节点未使用可滚动组件
+  - 2、父子容器均不确定高度，flutter不知道如何去渲染
 
 
 

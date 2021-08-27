@@ -10,14 +10,16 @@ class CustomSliverHeaderDemo extends StatelessWidget {
           SliverPersistentHeader(
             pinned: true,
             delegate: SliverCustomHeaderDelegate(
-              title: '哪吒之魔童降世',
-              collapsedHeight: 40,
-              expandedHeight: 300,
-              paddingTop: MediaQuery.of(context).padding.top,
-              coverImgUrl: 'https://img.zcool.cn/community/01c6615d3ae047a8012187f447cfef.jpg@1280w_1l_2o_100sh.jpg'
-            ),
+                title: '哪吒之魔童降世',
+                collapsedHeight: 40,
+                expandedHeight: 300,
+                paddingTop: MediaQuery.of(context).padding.top,
+                coverImgUrl:
+                    'https://img.zcool.cn/community/01c6615d3ae047a8012187f447cfef.jpg@1280w_1l_2o_100sh.jpg'),
           ),
           SliverFillRemaining(
+            fillOverscroll: true,
+            hasScrollBody: false,
             child: FilmContent(),
           )
         ],
@@ -54,13 +56,13 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
   }
 
   void updateStatusBarBrightness(shrinkOffset) {
-    if(shrinkOffset > 50 && this.statusBarMode == 'dark') {
+    if (shrinkOffset > 50 && this.statusBarMode == 'dark') {
       this.statusBarMode = 'light';
       SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
         statusBarBrightness: Brightness.light,
         statusBarIconBrightness: Brightness.light,
       ));
-    } else if(shrinkOffset <= 50 && this.statusBarMode == 'light') {
+    } else if (shrinkOffset <= 50 && this.statusBarMode == 'light') {
       this.statusBarMode = 'dark';
       SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
         statusBarBrightness: Brightness.dark,
@@ -70,21 +72,26 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
   }
 
   Color makeStickyHeaderBgColor(shrinkOffset) {
-    final int alpha = (shrinkOffset / (this.maxExtent - this.minExtent) * 255).clamp(0, 255).toInt();
+    final int alpha = (shrinkOffset / (this.maxExtent - this.minExtent) * 255)
+        .clamp(0, 255)
+        .toInt();
     return Color.fromARGB(alpha, 255, 255, 255);
   }
 
   Color makeStickyHeaderTextColor(shrinkOffset, isIcon) {
-    if(shrinkOffset <= 50) {
+    if (shrinkOffset <= 50) {
       return isIcon ? Colors.white : Colors.transparent;
     } else {
-      final int alpha = (shrinkOffset / (this.maxExtent - this.minExtent) * 255).clamp(0, 255).toInt();
+      final int alpha = (shrinkOffset / (this.maxExtent - this.minExtent) * 255)
+          .clamp(0, 255)
+          .toInt();
       return Color.fromARGB(alpha, 0, 0, 0);
     }
   }
 
   @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
     this.updateStatusBarBrightness(shrinkOffset);
     return Container(
       height: this.maxExtent,
@@ -127,7 +134,8 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                       IconButton(
                         icon: Icon(
                           Icons.arrow_back_ios,
-                          color: this.makeStickyHeaderTextColor(shrinkOffset, true),
+                          color: this
+                              .makeStickyHeaderTextColor(shrinkOffset, true),
                         ),
                         onPressed: () => Navigator.pop(context),
                       ),
@@ -136,13 +144,15 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
-                          color: this.makeStickyHeaderTextColor(shrinkOffset, false),
+                          color: this
+                              .makeStickyHeaderTextColor(shrinkOffset, false),
                         ),
                       ),
                       IconButton(
                         icon: Icon(
                           Icons.share,
-                          color: this.makeStickyHeaderTextColor(shrinkOffset, true),
+                          color: this
+                              .makeStickyHeaderTextColor(shrinkOffset, true),
                         ),
                         onPressed: () {},
                       ),
