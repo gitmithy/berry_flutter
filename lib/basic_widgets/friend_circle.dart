@@ -88,7 +88,7 @@ class FriendCircle extends StatelessWidget {
                   this.data.saying,
                   style: TextStyle(
                     fontSize: 15,
-                    height: 0.8,
+                    height: 1.2,
                     color: Color(0xFF333333),
                   ),
                 ),
