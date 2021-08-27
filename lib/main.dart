@@ -104,13 +104,14 @@ class HomePage extends StatelessWidget {
           childAspectRatio: 1.0,
         ),
         itemBuilder: (context, index) {
-          return FlatButton(
+          return TextButton(
             onPressed: () =>
                 Navigator.pushNamed(context, DEMOS[index].routeName),
-            color: COLORS[index % COLORS.length],
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
+            style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all(COLORS[index % COLORS.length]),
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0)))),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
