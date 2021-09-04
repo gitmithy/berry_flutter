@@ -5,14 +5,14 @@ import 'list_view/index.dart';
 import 'grid_view/index.dart';
 import 'custom_icon/index.dart';
 import 'sliver_widgets/index.dart';
-
+import 'berry_view/index.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'berry Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
         'list_view': (context) => ListViewDemo(),
         'grid_view': (context) => GridViewDemo(),
         'custom_icons': (context) => CustomIconsDemo(),
-        'sliver_widgets': (context) => SliverWidgetsDemo()
+        'sliver_widgets': (context) => SliverWidgetsDemo(),
+        'berry_view': (context) => berryViewDemo()
       },
     );
   }
@@ -67,6 +68,11 @@ const DEMOS = [
     description: '自定义高级滚动组件，float、snap、pinned效果任你组合',
     routeName: 'sliver_widgets',
   ),
+  Demo(
+    title: 'berry系列组件',
+    description: 'berry组件测试',
+    routeName: 'berry_view',
+  ),
 ];
 
 class Demo {
@@ -92,7 +98,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Flutter Training'),
+        title: Text('berry Training'),
       ),
       body: GridView.builder(
         itemCount: DEMOS.length,
